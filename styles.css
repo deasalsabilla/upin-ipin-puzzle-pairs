@@ -1,0 +1,95 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  width: 25%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-image: url("assets/rumah.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.game-title {
+  font-size: 55px;
+  font-family: "Lilita One", sans-serif;
+  color: #fff; /* Change color to match your design */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.play-button {
+  padding: 15px 30px;
+  font-size: 24px;
+  background-image: url('assets/awan.png'); /* Replace 'cloud_image.png' with the actual image file */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+
+.play-button:hover {
+  background-color: #45a049;
+}
+
+/* Existing styles */
+
+/* New styles for level selection */
+.hidden {
+  display: none;
+}
+
+#levelSelectionPage {
+  text-align: center;
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.level-container {
+  display: flex;
+  justify-content: center;
+}
+
+.level {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 24px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.level:hover {
+  background-color: #45a049;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+

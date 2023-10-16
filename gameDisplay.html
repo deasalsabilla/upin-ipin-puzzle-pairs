@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Start</title>
+    <style>
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .card {
+        width: 128px;
+        height: 128px;
+        border: 1px solid #000;
+        background-color: red;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 5px; /* Add margin between cards */
+      }
+
+      #timer {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+      }
+
+      #winModal, #kalah {
+        display: none;
+      }
+      
+      #winModal .modal-content {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      #kalah .konten{
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      #winModal img, #kalah img {
+        max-width: 100%;
+      }
+
+      #winModal button, #kalah button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      #winModal button:hover, #kalah button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="timer"></div>
+    <div class="game-container">
+      <h1 class="level-title">Level <span id="level-num"></span></h1>
+      <div id="box-container" class="box-container"></div>
+    </div>
+
+    <div id="winModal" class="modal">
+      <div class="modal-content">
+        <img src="assets/menang.png" alt="You Win" />
+        <button onclick="goToHome()">Home</button>
+        <button onclick="proceedToNextLevel()">Lanjut</button>
+      </div>
+    </div>
+
+    <div id="kalah">
+      <div class="konten">
+        <img src="assets/timesup.jpg" alt=""><br>
+        <button onclick="goToHome()">Home</button>
+        <button onclick="restartGame()">Ulangi</button>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
