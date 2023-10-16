@@ -15,6 +15,33 @@
       href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@100;300;400;700&family=Roboto:wght@100&display=swap"
       rel="stylesheet"
     />
+    <style>
+      @keyframes wobble {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        15% {
+          transform: translateX(-25%) rotate(-5deg);
+        }
+        30% {
+          transform: translateX(20%) rotate(3deg);
+        }
+        45% {
+          transform: translateX(-15%) rotate(-3deg);
+        }
+        60% {
+          transform: translateX(10%) rotate(2deg);
+        }
+        75% {
+          transform: translateX(-5%) rotate(-1deg);
+        }
+      }
+
+      .wobble-infinite {
+        animation: wobble 1s infinite;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -22,7 +49,7 @@
         Upin Ipin Puzzle Pairs
       </h1>
       <img
-        class="animate__animated animate__wobble"
+        class="animate__animated wobble-infinite"
         src="assets/icon.png"
         alt=""
       />
@@ -31,8 +58,9 @@
         class="play-button animate__animated animate__bounceInUp"
         onclick="startGame()"
       >
-        Mulai</button
-      ><br />
+        Mulai
+      </button>
+      <br />
 
       <button
         class="play-button animate__animated animate__bounceIn"
@@ -43,22 +71,28 @@
     </div>
 
     <script>
-      const startSound = new Audio('assets/sound/start.mp3');
-      const songs = ['lagu1.mp3', 'lagu2.mp3', 'lagu3.mp3'];
+      const startSound = new Audio("assets/sound/start.mp3");
+      const songs = ["lagu1.mp3", "lagu2.mp3", "lagu3.mp3"];
     
       // Function to play a random song
       function playRandomSong() {
         const randomIndex = Math.floor(Math.random() * songs.length);
-        const randomSong = new Audio('assets/sound/' + songs[randomIndex]);
+        const randomSong = new Audio("assets/sound/" + songs[randomIndex]);
         randomSong.play();
       }
     
-      startSound.addEventListener('ended', playRandomSong);
+      startSound.addEventListener("ended", playRandomSong);
     
-      document.addEventListener('click', function() {
-        startSound.play();
+      document.addEventListener("click", function (event) {
+        const clickedElement = event.target;
+    
+        // Check if the clicked element is not the "Credit" button
+        if (!clickedElement.classList.contains("credit-button")) {
+          startSound.play();
+        }
       });
     </script>
+    
     <script src="script.js"></script>
   </body>
 </html>

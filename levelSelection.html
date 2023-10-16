@@ -1,105 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Level Selection</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"> -->
-  <style>
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level Selection</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"> -->
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
 
-    .level-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      background-image: url("assets/level.jpg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+      .level-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-image: url("assets/level.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
 
-    .level-title {
-      font-size: 36px;
-      color: #fff;
-      margin-bottom: 20px;
-    }
+      .level-title {
+        font-size: 36px;
+        color: #fff;
+        margin-bottom: 20px;
+      }
 
-    .button-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
+      .button-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .level-buttons {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
+      .level-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .level-button {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin: 10px;
-      border: none;
-      cursor: pointer;
-      background-color: #4caf50;
-    }
+      .level-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        background-color: #4caf50;
+      }
 
-    .level-button:hover {
-      background-color: #45a049;
-    }
+      .level-button:hover {
+        background-color: #45a049;
+      }
 
-    .home-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #4caf50;
-      border: none;
-      border-radius: 50%;
-      padding: 10px;
-      color: white;
-      cursor: pointer;
-      width: 100px;
-      font-size: 24px;
-      height: 80px;
-    }
+      .home-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        color: white;
+        cursor: pointer;
+        width: 100px;
+        font-size: 24px;
+        height: 80px;
+      }
 
-    .home-button i {
-      font-size: 24px;
-    }
+      .home-button i {
+        font-size: 24px;
+      }
 
-    .home-button:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-<body>
-  <div class="level-container">
-    <h1 class="level-title">Pilih Level</h1>
-    <div class="button-container">
-      <div class="level-buttons">
-        <button class="level-button" onclick="redirectToGame(1)">1</button>
-        <button class="level-button" onclick="redirectToGame(2)">2</button>
-        <button class="level-button" onclick="redirectToGame(3)">3</button>
-        <button class="level-button" onclick="redirectToGame(4)">4</button>
-        <button class="level-button" onclick="redirectToGame(5)">5</button>
-        <button class="level-button" onclick="redirectToGame(6)">6</button>
+      .home-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="level-container">
+      <h1 class="level-title">Pilih Level</h1>
+      <div class="button-container">
+        <div class="level-buttons">
+          <button class="level-button" onclick="redirectToGame(1)">1</button>
+          <button class="level-button" onclick="redirectToGame(2)">2</button>
+          <button class="level-button" onclick="redirectToGame(3)">3</button>
+          <button class="level-button" onclick="redirectToGame(4)">4</button>
+          <button class="level-button" onclick="redirectToGame(5)">5</button>
+          <button class="level-button" onclick="redirectToGame(6)">6</button>
+        </div>
       </div>
+
+      <button class="home-button" onclick="goToHome()">Home</button>
     </div>
-    
-    <button class="home-button" onclick="goToHome()">Home</button>
-  </div>
-  
-  <script src="script.js"></script>
-</body>
+
+    <script>
+      const songs = ["lagu4.mp3", "lagu5.mp3"];
+
+      function playRandomSong() {
+        const randomIndex = Math.floor(Math.random() * songs.length);
+        const randomSong = new Audio("assets/sound/" + songs[randomIndex]);
+        randomSong.play();
+      }
+
+      document.addEventListener("click", playRandomSong);
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

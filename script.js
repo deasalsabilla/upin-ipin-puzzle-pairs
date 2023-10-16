@@ -1,5 +1,4 @@
 function startGame() {
-  console.log("startGame function called!");
   window.location.href = "levelSelection.html";
 }
 
