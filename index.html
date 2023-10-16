@@ -73,26 +73,36 @@
     <script>
       const startSound = new Audio("assets/sound/start.mp3");
       const songs = ["lagu1.mp3", "lagu2.mp3", "lagu3.mp3"];
-    
-      // Function to play a random song
+      let isStartSoundPlaying = false; // Flag to track if start sound is playing
+      let isRandomSongPlaying = false; // Flag to track if a random song is playing
+
       function playRandomSong() {
+        isStartSoundPlaying = false; // Reset the flag after playing the start sound
+        isRandomSongPlaying = true; // Set the flag when a random song is playing
+
         const randomIndex = Math.floor(Math.random() * songs.length);
         const randomSong = new Audio("assets/sound/" + songs[randomIndex]);
+        randomSong.addEventListener("ended", function () {
+          isRandomSongPlaying = false; // Reset the flag after the random song ends
+        });
         randomSong.play();
       }
-    
+
       startSound.addEventListener("ended", playRandomSong);
-    
+
       document.addEventListener("click", function (event) {
         const clickedElement = event.target;
-    
+
         // Check if the clicked element is not the "Credit" button
         if (!clickedElement.classList.contains("credit-button")) {
-          startSound.play();
+          if (!isStartSoundPlaying && !isRandomSongPlaying) {
+            startSound.play();
+            isStartSoundPlaying = true; // Set the flag when the start sound is playing
+          }
         }
       });
     </script>
-    
+
     <script src="script.js"></script>
   </body>
 </html>
