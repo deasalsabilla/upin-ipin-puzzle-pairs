@@ -43,9 +43,19 @@
     </div>
 
     <script>
-      const startSound = new Audio("assets/sound/start.mp3");
-
-      document.addEventListener("click", function () {
+      const startSound = new Audio('assets/sound/start.mp3');
+      const songs = ['lagu1.mp3', 'lagu2.mp3', 'lagu3.mp3'];
+    
+      // Function to play a random song
+      function playRandomSong() {
+        const randomIndex = Math.floor(Math.random() * songs.length);
+        const randomSong = new Audio('assets/sound/' + songs[randomIndex]);
+        randomSong.play();
+      }
+    
+      startSound.addEventListener('ended', playRandomSong);
+    
+      document.addEventListener('click', function() {
         startSound.play();
       });
     </script>
