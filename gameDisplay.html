@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Start</title>
-    <link rel="shortcut icon" href="assets/icon.ico">
+    <link rel="shortcut icon" href="assets/icon.ico" />
     <style>
       h1 {
         text-align: center;
@@ -35,10 +35,11 @@
         font-size: 24px;
       }
 
-      #winModal, #kalah {
+      #winModal,
+      #kalah {
         display: none;
       }
-      
+
       #winModal .modal-content {
         background-color: white;
         border-radius: 10px;
@@ -46,18 +47,20 @@
         text-align: center;
       }
 
-      #kalah .konten{
+      #kalah .konten {
         background-color: white;
         border-radius: 10px;
         padding: 20px;
         text-align: center;
       }
 
-      #winModal img, #kalah img {
+      #winModal img,
+      #kalah img {
         max-width: 100%;
       }
 
-      #winModal button, #kalah button {
+      #winModal button,
+      #kalah button {
         background-color: #4caf50;
         color: white;
         padding: 10px 20px;
@@ -67,7 +70,8 @@
         font-size: 18px;
       }
 
-      #winModal button:hover, #kalah button:hover {
+      #winModal button:hover,
+      #kalah button:hover {
         background-color: #45a049;
       }
     </style>
@@ -89,32 +93,16 @@
 
     <div id="kalah">
       <div class="konten">
-        <img src="assets/timesup.jpg" alt=""><br>
+        <img src="assets/timesup.jpg" alt="" /><br />
         <button onclick="goToHome()">Home</button>
         <button onclick="restartGame()">Ulangi</button>
       </div>
     </div>
-    
+
     <script>
-      const songs = ["lagu6.mp3", "lagu7.mp3"];
-      let isSongPlaying = false;
-    
-      function playRandomSong() {
-        if (!isSongPlaying) {
-          isSongPlaying = true;
-    
-          const randomIndex = Math.floor(Math.random() * songs.length);
-          const randomSong = new Audio("assets/sound/" + songs[randomIndex]);
-          randomSong.addEventListener("ended", function () {
-            isSongPlaying = false; // Reset the flag after the song ends
-          });
-          randomSong.play();
-        }
-      }
-    
-      document.addEventListener("click", playRandomSong);
+      
     </script>
-    
+
     <script src="script.js"></script>
   </body>
 </html>

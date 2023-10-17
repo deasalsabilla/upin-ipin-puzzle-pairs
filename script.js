@@ -1,5 +1,28 @@
 let isGameActive = true; // Flag to track if the game is active
 
+let randomSongAudio = null;
+let isRandomSongPlaying = false;
+
+const songs = ["lagu6.mp3", "lagu7.mp3"];
+let isSongPlaying = false;
+
+function playRandomSong() {
+  if (!isSongPlaying) {
+    isSongPlaying = true;
+
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    randomSongAudio = new Audio("assets/sound/" + songs[randomIndex]);
+    randomSongAudio.addEventListener("ended", function () {
+      isSongPlaying = false; // Reset the flag after the song ends
+    });
+    randomSongAudio.play();
+
+    isRandomSongPlaying = true; // Set the flag for random song playing
+  }
+}
+
+document.addEventListener("click", playRandomSong);
+
 function startGame() {
   window.location.href = "levelSelection.html";
 }
@@ -85,12 +108,29 @@ function onCardClick(card, cardNumber) {
   }
 }
 
+function stopRandomSong() {
+  if (randomSongAudio && isRandomSongPlaying) {
+    randomSongAudio.pause();
+    isRandomSongPlaying = false;
+  }
+}
+
 function playWinSound() {
   const audio = new Audio("assets/sound/menang.mp3");
   audio.autoplay = true;
 
   // Lock the game when the game is won
   isGameActive = false;
+  isGameWon = true;
+  clearInterval(timerInterval);
+
+  stopRandomSong();
+
+  // Set a timeout to stop the win sound after 5 seconds
+  setTimeout(() => {
+    audio.pause();
+    audio.currentTime = 0;
+  }, 5000);
 }
 
 function checkMatch(cardNumber) {
@@ -147,6 +187,14 @@ let gameWon = false; // Flag to track if the game is won
 function playLoseSound() {
   const audio = new Audio("assets/sound/kalah.mp3");
   audio.autoplay = true;
+
+  stopRandomSong();
+
+  // Set a timeout to stop the win sound after 5 seconds
+  setTimeout(() => {
+    audio.pause();
+    audio.currentTime = 0;
+  }, 5000);
 }
 
 function updateTimer() {
