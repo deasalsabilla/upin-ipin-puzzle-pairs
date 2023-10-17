@@ -1,3 +1,5 @@
+let isGameActive = true; // Flag to track if the game is active
+
 function startGame() {
   window.location.href = "levelSelection.html";
 }
@@ -68,7 +70,7 @@ function displayGame() {
 }
 
 function onCardClick(card, cardNumber) {
-  if (!card.style.backgroundImage.includes("20.jpeg")) {
+  if (!isGameActive || !card.style.backgroundImage.includes("20.jpeg")) {
     // Card is already revealed, do nothing
     return;
   }
@@ -86,6 +88,9 @@ function onCardClick(card, cardNumber) {
 function playWinSound() {
   const audio = new Audio("assets/sound/menang.mp3");
   audio.autoplay = true;
+
+  // Lock the game when the game is won
+  isGameActive = false;
 }
 
 function checkMatch(cardNumber) {
@@ -145,8 +150,8 @@ function playLoseSound() {
 }
 
 function updateTimer() {
-  // Check if the timer element exists and the game is not won
-  if (timerElement && !gameWon) {
+  // Check if the timer element exists
+  if (timerElement) {
     if (totalSeconds <= 0) {
       clearInterval(timerInterval);
       playLoseSound(); // Play the losing sound
@@ -159,7 +164,8 @@ function updateTimer() {
       kalah.style.justifyContent = "center";
       kalah.style.alignItems = "center";
 
-      // Redirect to level selection or perform other actions when time's up
+      // Lock the game when time's up
+      isGameActive = false;
     } else {
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds % 60;
@@ -168,8 +174,6 @@ function updateTimer() {
       timerElement.innerText = `${padZero(minutes)}:${padZero(seconds)}`;
       totalSeconds--;
     }
-  } else if (gameWon) {
-    clearInterval(timerInterval); // Stop the timer when the game is won
   } else {
     console.error("Timer element not found.");
   }
