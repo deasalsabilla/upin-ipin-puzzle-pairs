@@ -1,28 +1,5 @@
 let isGameActive = true; // Flag to track if the game is active
 
-let randomSongAudio = null;
-let isRandomSongPlaying = false;
-
-const songs = ["lagu6.mp3", "lagu7.mp3"];
-let isSongPlaying = false;
-
-function playRandomSong() {
-  if (!isSongPlaying) {
-    isSongPlaying = true;
-
-    const randomIndex = Math.floor(Math.random() * songs.length);
-    randomSongAudio = new Audio("assets/sound/" + songs[randomIndex]);
-    randomSongAudio.addEventListener("ended", function () {
-      isSongPlaying = false; // Reset the flag after the song ends
-    });
-    randomSongAudio.play();
-
-    isRandomSongPlaying = true; // Set the flag for random song playing
-  }
-}
-
-document.addEventListener("click", playRandomSong);
-
 function startGame() {
   window.location.href = "levelSelection.html";
 }
@@ -109,9 +86,9 @@ function onCardClick(card, cardNumber) {
 }
 
 function stopRandomSong() {
-  if (randomSongAudio && isRandomSongPlaying) {
+  if (randomSongAudio && isSongPlaying) {
     randomSongAudio.pause();
-    isRandomSongPlaying = false;
+    isSongPlaying = false;
   }
 }
 

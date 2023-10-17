@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@100;300;400;700&family=Roboto:wght@100&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="assets/icon.ico">
+    <link rel="shortcut icon" href="assets/icon.ico" />
     <style>
       @keyframes wobble {
         0%,
@@ -47,7 +47,8 @@
   <body>
     <div class="container">
       <h1 class="game-title animate__animated animate__bounceInDown">
-        Upin <span class="dan">&</span> <span class="ipin">Ipin</span> Puzzle Pairs
+        Upin <span class="dan">&</span> <span class="ipin">Ipin</span> Puzzle
+        Pairs
       </h1>
       <img
         class="animate__animated wobble-infinite"
@@ -73,18 +74,35 @@
 
     <script>
       const startSound = new Audio("assets/sound/start.mp3");
-      const songs = ["lagu1.mp3", "lagu2.mp3", "lagu3.mp3"];
+      const songs = [
+        "lagu1.mp3",
+        "lagu2.mp3",
+        "lagu3.mp3",
+        "lagu4.mp3",
+        "lagu5.mp3",
+        "lagu6.mp3",
+        "lagu7.mp3",
+      ];
+
       let isStartSoundPlaying = false; // Flag to track if start sound is playing
       let isRandomSongPlaying = false; // Flag to track if a random song is playing
+      let lastPlayedIndex = -1;
 
       function playRandomSong() {
         isStartSoundPlaying = false; // Reset the flag after playing the start sound
         isRandomSongPlaying = true; // Set the flag when a random song is playing
 
-        const randomIndex = Math.floor(Math.random() * songs.length);
+        let randomIndex;
+
+        // Choose a new random index that is different from the previous one
+        do {
+          randomIndex = Math.floor(Math.random() * songs.length);
+        } while (randomIndex === lastPlayedIndex);
+
         const randomSong = new Audio("assets/sound/" + songs[randomIndex]);
         randomSong.addEventListener("ended", function () {
           isRandomSongPlaying = false; // Reset the flag after the random song ends
+          lastPlayedIndex = randomIndex; // Update the last played index
         });
         randomSong.play();
       }
