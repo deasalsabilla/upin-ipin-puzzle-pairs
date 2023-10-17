@@ -7,6 +7,10 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"> -->
     <link rel="shortcut icon" href="assets/icon.ico">
     <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <style>
       body,
       html {
@@ -91,9 +95,9 @@
         <div class="loading-spinner"></div>
         <div class="loading-text">Loading...</div>
       </div>
-      <h1 class="level-title">Pilih Level</h1>
+      <h1 class="level-title animate__animated animate__fadeInDownBig">Pilih Level</h1>
       <div class="button-container">
-        <div class="level-buttons">
+        <div class="level-buttons animate__animated animate__fadeInDownBig">
           <button class="level-button" onclick="redirectToGame(1)">1</button>
           <button class="level-button" onclick="redirectToGame(2)">2</button>
           <button class="level-button" onclick="redirectToGame(3)">3</button>
@@ -103,7 +107,7 @@
         </div>
       </div>
 
-      <button class="home-button" onclick="goToHome()">Home</button>
+      <button class="home-button animate__animated animate__fadeInUp" onclick="goToHome()">Home</button>
     </div>
 
     <script src="script.js"></script>
