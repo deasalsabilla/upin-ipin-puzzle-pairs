@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Set timeout untuk menghapus kelas 'active' setelah 2 detik
   setTimeout(function () {
     loadingOverlay.classList.remove("active");
-  }, 2000); 
+  }, 2000);
 });
 
 function startGame() {
@@ -105,21 +105,20 @@ function stopRandomSong() {
 }
 
 function playWinSound() {
-  const audio = new Audio("assets/sound/menang.mp3");
-  audio.autoplay = true;
+  // Pause the random song
+  stopRandomSong();
+
+  // Disable the event listener for playing random song
+  document.removeEventListener("click", playRandomSong);
+
+  const winAudio = new Audio("assets/sound/menang.mp3");
+  winAudio.autoplay = true;
 
   // Lock the game when the game is won
   isGameActive = false;
   isGameWon = true;
   clearInterval(timerInterval);
 
-  stopRandomSong();
-
-  // Set a timeout to stop the win sound after 5 seconds
-  setTimeout(() => {
-    audio.pause();
-    audio.currentTime = 0;
-  }, 5000);
 }
 
 function checkMatch(cardNumber) {
