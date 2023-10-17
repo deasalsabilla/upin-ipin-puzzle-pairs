@@ -42,8 +42,6 @@
       .wobble-infinite {
         animation: wobble 1s infinite;
       }
-
-      
     </style>
   </head>
   <body>
@@ -110,6 +108,7 @@
         randomSong.addEventListener("ended", function () {
           isRandomSongPlaying = false; // Reset the flag after the random song ends
           lastPlayedIndex = randomIndex; // Update the last played index
+          playRandomSong(); // Play another random song after the current one ends
         });
         randomSong.play();
       }
