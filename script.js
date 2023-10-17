@@ -1,5 +1,17 @@
 let isGameActive = true; // Flag to track if the game is active
 
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingOverlay = document.getElementById("loadingOverlay");
+
+  // Tampilkan animasi loading
+  loadingOverlay.classList.add("active");
+
+  // Set timeout untuk menghapus kelas 'active' setelah 2 detik
+  setTimeout(function () {
+    loadingOverlay.classList.remove("active");
+  }, 2000); 
+});
+
 function startGame() {
   window.location.href = "levelSelection.html";
 }

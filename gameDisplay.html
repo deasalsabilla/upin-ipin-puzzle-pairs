@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Start</title>
     <link rel="shortcut icon" href="assets/icon.ico" />
+    <link rel="stylesheet" href="styles.css">
     <style>
       h1 {
         text-align: center;
@@ -79,6 +80,10 @@
   <body>
     <div id="timer"></div>
     <div class="game-container">
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading...</div>
+      </div>
       <h1 class="level-title">Level <span id="level-num"></span></h1>
       <div id="box-container" class="box-container"></div>
     </div>
@@ -98,10 +103,6 @@
         <button onclick="restartGame()">Ulangi</button>
       </div>
     </div>
-
-    <script>
-      
-    </script>
 
     <script src="script.js"></script>
     <script src="script2.js"></script>
