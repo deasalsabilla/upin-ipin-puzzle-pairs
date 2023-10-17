@@ -42,10 +42,8 @@ img {
 .play-button {
   padding: 15px 30px;
   font-size: 24px;
-  background-image: url('assets/awan.png'); /* Replace 'cloud_image.png' with the actual image file */
-  background-size: cover;
-  background-repeat: no-repeat;
   color: black;
+  background-color: deepskyblue;
   border: none;
   cursor: pointer;
 }

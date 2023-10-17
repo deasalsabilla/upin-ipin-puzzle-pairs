@@ -11,6 +11,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <style>
       body,
       html {
@@ -87,6 +95,29 @@
       .home-button:hover {
         background-color: #45a049;
       }
+
+      /* Gaya tooltip */
+      .home-button::after {
+        content: attr(title);
+        position: absolute;
+        bottom: -25px; /* Menempatkan tooltip di bawah tombol */
+        left: 50%; /* Menggeser tooltip ke tengah */
+        transform: translateX(-50%); /* Menggeser tooltip ke tengah */
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+
+      .home-button:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
     </style>
   </head>
   <body>
@@ -112,8 +143,9 @@
       <button
         class="home-button animate__animated animate__fadeInUp"
         onclick="goToHome()"
+        title="Back to Home"
       >
-        Home
+        <i class="fa-solid fa-house fa-shake"></i>
       </button>
     </div>
 
