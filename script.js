@@ -118,7 +118,6 @@ function playWinSound() {
   isGameActive = false;
   isGameWon = true;
   clearInterval(timerInterval);
-
 }
 
 function checkMatch(cardNumber) {

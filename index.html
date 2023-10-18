@@ -50,6 +50,28 @@
       .wobble-infinite {
         animation: wobble 1s infinite;
       }
+
+      /* #settingsButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      #settingsPopup {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        padding: 10px;
+        background-color: #f1c40f;
+        color: #333;
+        border: 1px solid #333;
+      } */
     </style>
   </head>
   <body>
@@ -60,8 +82,8 @@
       </div>
 
       <h1 class="game-title animate__animated animate__bounceInDown">
-        Upin <span class="dan">&</span> <span class="ipin">Ipin</span> Puzzle
-        Pairs
+        Upin <span class="dan">&</span> <span class="ipin">Ipin</span> <span  class="merah">Puzzle
+          Pairs</span>
       </h1>
       <img
         class="animate__animated wobble-infinite"
@@ -83,7 +105,16 @@
       >
         Credit
       </button>
-    </div>
+
+      <!-- <button class="settings-button" onclick="toggleSettingsPopup()">
+        <i class="fa-solid fa-cog"></i> Settings
+      </button> -->
+
+      <!-- <div id="settingsPopup">
+        <label for="soundToggle">Sound:</label>
+        <button id="soundToggle" onclick="toggleSound()">On</button>
+      </div>
+    </div> -->
 
     <script>
       const startSound = new Audio("assets/sound/start.mp3");
@@ -134,6 +165,43 @@
           }
         }
       });
+
+      // function toggleSettingsPopup() {
+      //   const settingsPopup = document.getElementById("settingsPopup");
+      //   settingsPopup.style.display =
+      //     settingsPopup.style.display === "none" ||
+      //     settingsPopup.style.display === ""
+      //       ? "block"
+      //       : "none";
+      // }
+
+      // function toggleSound() {
+      //   const soundToggle = document.getElementById("soundToggle");
+      //   if (soundToggle.innerText === "On") {
+      //     soundToggle.innerText = "Off";
+      //     // Add logic to turn off sound
+      //   } else {
+      //     soundToggle.innerText = "On";
+      //     // Add logic to turn on sound
+      //   }
+      // }
+
+      // let isSoundOn = true;
+
+      // function toggleSound() {
+      //   const soundToggle = document.getElementById("soundToggle");
+      //   if (isSoundOn) {
+      //     soundToggle.innerText = "Off";
+      //     isSoundOn = false;
+      //   } else {
+      //     soundToggle.innerText = "On";
+      //     isSoundOn = true;
+      //     if (!isStartSoundPlaying && !isRandomSongPlaying && isSoundOn) {
+      //       startSound.play();
+      //       isStartSoundPlaying = true;
+      //     }
+      //   }
+      // }
     </script>
 
     <script src="script.js"></script>
