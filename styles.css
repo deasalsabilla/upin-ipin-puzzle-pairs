@@ -47,14 +47,14 @@ img {
   padding: 15px 30px;
   font-size: 24px;
   color: black;
-  background-color: deepskyblue;
+  background-color: #F4E869;
   border: none;
   cursor: pointer;
 }
 
 
 .play-button:hover {
-  background-color: #45a049;
+  background-color: #5CD2E6;
 }
 
 /* Existing styles */
