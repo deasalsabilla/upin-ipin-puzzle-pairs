@@ -123,6 +123,23 @@
         opacity: 1;
         visibility: visible;
       }
+
+      @media (max-width: 767px) {
+        .level-buttons {
+          flex-wrap: wrap; /* Mengizinkan pemutaran level menjadi beberapa baris */
+        }
+
+        .level-button {
+          width: calc(
+            33.33% - 20px
+          ); /* Lebar maksimal 3 kolom per baris, dengan jarak antar kolom 20px */
+          margin: 5px; /* Mengatur jarak antar tombol level */
+        }
+
+        .level-container{
+          padding-top: 80px;
+        }
+      }
     </style>
   </head>
   <body>
