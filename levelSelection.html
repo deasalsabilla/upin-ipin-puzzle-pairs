@@ -31,12 +31,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start; /* Mengubah menjadi flex-start untuk konten di pojok atas */
         height: 100%;
         background-image: url("assets/bg.jpeg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        padding: 0; /* Menghapus padding */
+        padding-top: 40px;
+        box-sizing: border-box;
       }
 
       .level-title {
@@ -124,11 +127,12 @@
   </head>
   <body>
     <div class="level-container">
+      <img src="assets/nama.png" alt="" />
       <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
         <div class="loading-text">Loading...</div>
       </div>
-      <img src="assets/nama.png" alt="" />
+
       <h1 class="level-title animate__animated animate__fadeInDownBig">
         Pilih Level
       </h1>

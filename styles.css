@@ -74,7 +74,7 @@ img {
   margin-bottom: 20px;
 }
 
-.level-container {
+/* .level-container {
   display: flex;
   justify-content: center;
 }
@@ -90,7 +90,7 @@ img {
 
 .level:hover {
   background-color: #45a049;
-}
+} */
 
 .popup {
   position: fixed;
