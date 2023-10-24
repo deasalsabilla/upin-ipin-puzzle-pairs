@@ -124,9 +124,27 @@
         visibility: visible;
       }
 
+      @media (min-width: 768px) {
+        .level-buttons {
+          flex-wrap: wrap; /* Mengizinkan pemutaran level menjadi beberapa baris */
+          justify-content: flex-start;
+          padding-left: 40px;
+        }
+
+        .level-button {
+          width: calc(
+            20% - 10px
+          ); /* Lebar maksimal 5 kolom per baris, dengan jarak antar kolom 20px */
+          height: 40px;
+          margin: 8px; /* Mengatur jarak antar tombol level */
+        }
+      }
+
       @media (max-width: 767px) {
         .level-buttons {
           flex-wrap: wrap; /* Mengizinkan pemutaran level menjadi beberapa baris */
+          justify-content: flex-start;
+          padding-left: 40px;
         }
 
         .level-button {
@@ -136,11 +154,11 @@
           margin: 5px; /* Mengatur jarak antar tombol level */
         }
 
-        .level-container{
+        .level-container {
           padding-top: 50px;
         }
-        
-        img{
+
+        img {
           width: 75%;
         }
       }
@@ -148,7 +166,11 @@
   </head>
   <body>
     <div class="level-container">
-      <img src="assets/nama.png" alt=""  class="animate__animated animate__shakeX"/>
+      <img
+        src="assets/nama.png"
+        alt=""
+        class="animate__animated animate__shakeX"
+      />
       <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
         <div class="loading-text">Loading...</div>
@@ -165,6 +187,7 @@
           <button class="level-button" onclick="redirectToGame(4)">4</button>
           <button class="level-button" onclick="redirectToGame(5)">5</button>
           <button class="level-button" onclick="redirectToGame(6)">6</button>
+          <button class="level-button" onclick="redirectToGame(7)">7</button>
         </div>
       </div>
 
