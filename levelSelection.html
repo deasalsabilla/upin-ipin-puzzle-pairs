@@ -134,7 +134,7 @@
         .level-button {
           width: calc(
             20% - 10px
-          ); /* Lebar maksimal 5 kolom per baris, dengan jarak antar kolom 20px */
+          ); /* Lebar maksimal 5 kolom per baris, dengan jarak antar kolom 10px */
           height: 40px;
           margin: 8px; /* Mengatur jarak antar tombol level */
         }
@@ -162,6 +162,28 @@
           width: 75%;
         }
       }
+
+      .animate-shake-x {
+        animation: shake-x 0.5s infinite;
+      }
+
+      @keyframes shake-x {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+        100% {
+          transform: translateX(5px);
+        }
+      }
     </style>
   </head>
   <body>
@@ -169,7 +191,7 @@
       <img
         src="assets/nama.png"
         alt=""
-        class="animate__animated animate__shakeX"
+        class="animate-shake-x"
       />
       <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
