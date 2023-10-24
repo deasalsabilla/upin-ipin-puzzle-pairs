@@ -23,12 +23,18 @@ function goToHome() {
 function redirectToGame(level) {
   // Redirect to game display page with level as a query parameter
   window.location.href = `gameDisplay.html?level=${level}`;
+  
 }
 
 function proceedToNextLevel() {
   const nextLevel = selectedLevel + 1;
-  // Redirect to the next level
-  window.location.href = `gameDisplay.html?level=${nextLevel}`;
+  if (nextLevel > 7) {
+    // Jika sudah mencapai level terakhir
+    alert("Permainan telah selesai!");
+  } else {
+    // Jika bukan level terakhir, redirect ke level berikutnya
+    window.location.href = `gameDisplay.html?level=${nextLevel}`;
+  }
 }
 
 function restartGame() {
