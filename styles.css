@@ -26,20 +26,20 @@ img {
 .game-title {
   font-size: 55px;
   font-family: "Lilita One", sans-serif;
-  color: yellow; /* Change color to match your design */
+  color: #d6d46d; /* Change color to match your design */
   text-align: center;
   margin-bottom: 20px;
 }
 
-.ipin{
-  color: blue;
+.ipin {
+  color: darkblue;
 }
 
-.dan{
+.dan {
   color: white;
 }
 
-.merah{
+.merah {
   color: red;
 }
 
@@ -47,14 +47,13 @@ img {
   padding: 15px 30px;
   font-size: 24px;
   color: black;
-  background-color: #F4E869;
+  background-color: #f4e869;
   border: none;
   cursor: pointer;
 }
 
-
 .play-button:hover {
-  background-color: #5CD2E6;
+  background-color: #5cd2e6;
 }
 
 /* Existing styles */
@@ -125,8 +124,7 @@ img {
 .loading-spinner {
   width: 100px;
   height: 100px;
-  background: url("assets/icon.png") no-repeat center
-    center;
+  background: url("assets/icon.png") no-repeat center center;
   background-size: cover;
   border-radius: 10px;
   animation: spin 2s linear infinite;
