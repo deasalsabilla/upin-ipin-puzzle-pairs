@@ -24,15 +24,16 @@ img {
 }
 
 .game-title {
+  background-color: #000;
   font-size: 55px;
   font-family: "Lilita One", sans-serif;
-  color: #d6d46d; /* Change color to match your design */
+  color: yellow; /* Change color to match your design */
   text-align: center;
   margin-bottom: 20px;
 }
 
 .ipin {
-  color: darkblue;
+  color: blue;
 }
 
 .dan {
