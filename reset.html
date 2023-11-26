@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Level</title>
+    <style>
+        /* Optional: Tambahkan styling sesuai kebutuhan */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Reset Level</h1>
+    
+    <p>Klik tombol di bawah untuk mereset level:</p>
+    
+    <button id="resetButton" onclick="resetLevels()">Reset Level</button>
+
+    <script>
+        function resetLevels() {
+            const confirmReset = confirm("Apakah Anda yakin ingin mereset level? Ini akan mengunci semua level kecuali level 1.");
+
+            if (confirmReset) {
+                const maxLevel = 7; // Gantilah dengan jumlah maksimal level yang ada
+                localStorage.setItem("unlockedLevel", 1);
+
+                for (let i = 2; i <= maxLevel; i++) {
+                    // Implementasikan logika untuk mengunci level di sini
+                    console.log('Level ' + i + ' dikunci.');
+                }
+
+                alert('Level telah direset. Hanya level 1 yang tetap terbuka.');
+            }
+        }
+    </script>
+
+</body>
+</html>

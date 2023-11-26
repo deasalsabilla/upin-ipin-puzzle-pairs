@@ -121,6 +121,15 @@
       #kalah button:hover {
         background-color: #45a049;
       }
+
+      #home {
+        background-color: #4caf50;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px; /* Menambahkan padding agar lebih mudah dilihat dan diklik */
+      }
     </style>
   </head>
   <body>
@@ -130,6 +139,11 @@
         <div class="loading-spinner"></div>
         <div class="loading-text">Loading...</div>
       </div>
+
+      <button onclick="goToHome()" id="home">
+        <i class="fa-solid fa-house fa-shake"></i> Home
+      </button>
+
       <h1 class="level-title">Level <span id="level-num"></span></h1>
       <div id="box-container" class="box-container"></div>
     </div>
@@ -137,15 +151,21 @@
     <div id="winModal" class="modal">
       <div class="modal-content">
         <img src="assets/win.png" alt="You Win" />
-        <button onclick="goToHome()"><i class="fa-solid fa-house fa-shake"></i> Home</button>
-        <button onclick="proceedToNextLevel()"><i class="fa-solid fa-arrow-right fa-beat"></i> Lanjut</button>
+        <button onclick="goToHome()">
+          <i class="fa-solid fa-house fa-shake"></i> Home
+        </button>
+        <button onclick="proceedToNextLevel()">
+          <i class="fa-solid fa-arrow-right fa-beat"></i> Lanjut
+        </button>
       </div>
     </div>
 
     <div id="kalah" class="modal">
       <div class="konten">
         <img src="assets/lose.png" alt="" /><br />
-        <button onclick="goToHome()"><i class="fa-solid fa-house fa-shake"></i> Home</button>
+        <button onclick="goToHome()">
+          <i class="fa-solid fa-house fa-shake"></i> Home
+        </button>
         <button onclick="restartGame()">Ulangi</button>
       </div>
     </div>
@@ -179,28 +199,6 @@
       }
 
       document.addEventListener("click", playRandomSong);
-
-      function showModal(modalId) {
-        var modal = document.getElementById(modalId);
-        modal.style.display = "block";
-      }
-
-      // Function to close the modal
-      function closeModal(modalId) {
-        var modal = document.getElementById(modalId);
-        modal.style.display = "none";
-      }
-
-      // You can call these functions in your game logic
-      // For example, if the game is won:
-      if (isGameWon) {
-        showModal("winModal");
-      }
-
-      // If the game is lost:
-      if (isGameLost) {
-        showModal("kalah");
-      }
     </script>
     <script src="script.js"></script>
   </body>

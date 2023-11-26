@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2000);
 });
 
+//fungsi direct ke halaman level
 function startGame() {
   window.location.href = "levelSelection.html";
 }
@@ -21,20 +22,53 @@ function goToHome() {
 }
 
 function redirectToGame(level) {
-  // Redirect to game display page with level as a query parameter
+  const unlockedLevel = parseInt(localStorage.getItem("unlockedLevel")) || 1;
+
+  // Check if the selected level is unlocked
+  if (level > unlockedLevel) {
+    alert("Level terkunci. Silakan selesaikan level sebelumnya.");
+    window.location.href = "levelSelection.html";
+    return;
+  }
+
+  // Redirect to the selected level
   window.location.href = `gameDisplay.html?level=${level}`;
-  
 }
 
+// Function to unlock the next level after winning
+function unlockNextLevel() {
+  const currentLevel = parseInt(localStorage.getItem("unlockedLevel")) || 1;
+  const nextLevel = currentLevel + 1;
+
+  // Check if the next level is within the total level count (e.g., 7 levels)
+  if (nextLevel <= 7) {
+    localStorage.setItem("unlockedLevel", nextLevel);
+  }
+}
+
+// Modify the proceedToNextLevel function to use localStorage for the next level
 function proceedToNextLevel() {
+  const currentLevel = parseInt(localStorage.getItem("unlockedLevel")) || 1;
   const nextLevel = selectedLevel + 1;
+
   if (nextLevel > 7) {
     // Jika sudah mencapai level terakhir
     alert("Permainan telah selesai!");
+  } else if (nextLevel <= currentLevel) {
+    // Jika level berikutnya belum terbuka
+    alert("Selamat, Anda telah menyelesaikan level ini! Lanjutkan ke level berikutnya.");
+
+    // Redirect to the unlocked level
+    window.location.href = `gameDisplay.html?level=${nextLevel}`;
   } else {
     // Jika bukan level terakhir, redirect ke level berikutnya
     window.location.href = `gameDisplay.html?level=${nextLevel}`;
   }
+}
+
+// Display the initial unlocked level in localStorage
+if (!localStorage.getItem("unlockedLevel")) {
+  localStorage.setItem("unlockedLevel", 1);
 }
 
 function restartGame() {
@@ -54,6 +88,7 @@ let secondCard = null;
 let cardsMatched = 0;
 let boxCount = 4 + (selectedLevel - 1) * 2; // Adjusted box count for each level
 
+//fungsi untuk display gamenya
 function displayGame() {
   const boxContainer = document.getElementById("box-container");
 
@@ -122,7 +157,6 @@ function playWinSound() {
 
   // Lock the game when the game is won
   isGameActive = false;
-  isGameWon = true;
   clearInterval(timerInterval);
 }
 
@@ -149,6 +183,9 @@ function checkMatch(cardNumber) {
       winModal.style.alignItems = "center";
       gameWon = true;
       playWinSound();
+
+      // Unlock the next level after winning
+      unlockNextLevel();
     }
   } else {
     // Not a match, hide the cards after a short delay
@@ -174,7 +211,7 @@ window.onload = displayGame;
 
 // time function
 const timerElement = document.getElementById("timer");
-let totalSeconds = selectedLevel * 30; // Initial time in seconds based on level
+let totalSeconds = selectedLevel * 20; // Initial time in seconds based on level
 let gameWon = false; // Flag to track if the game is won
 
 function playLoseSound() {
@@ -248,4 +285,27 @@ function showCredit() {
   setTimeout(() => {
     popup.remove();
   }, 4000);
+}
+
+//menang kalah pop up
+function showModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = "none";
+}
+
+// You can call these functions in your game logic
+// For example, if the game is won:
+if (isGameWon) {
+  showModal("winModal");
+}
+
+// If the game is lost:
+if (isGameLost) {
+  showModal("kalah");
 }
