@@ -49,8 +49,9 @@ img {
   font-size: 24px;
   color: black;
   background-color: #f4e869;
-  border: none;
+  border: 2px solid #f4e869;
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .play-button:hover {
