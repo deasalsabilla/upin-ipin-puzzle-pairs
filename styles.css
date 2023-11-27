@@ -157,3 +157,31 @@ img {
     width: 50%;
   }
 }
+
+.popup-help {
+  position: fixed;
+  top: 25%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.help-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px; /* Sesuaikan dengan keinginan Anda */
+  height: 40px; /* Sesuaikan dengan keinginan Anda */
+  border-radius: 50%;
+  background-color: #f4e869;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

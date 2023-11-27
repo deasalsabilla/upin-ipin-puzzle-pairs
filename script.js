@@ -301,11 +301,33 @@ function closeModal(modalId) {
 
 // You can call these functions in your game logic
 // For example, if the game is won:
-if (isGameWon) {
+if (gameWon) {
   showModal("winModal");
 }
 
 // If the game is lost:
 if (isGameLost) {
   showModal("kalah");
+}
+
+function showhelp() {
+  const popup = document.createElement("div");
+  popup.classList.add("popup-help");
+
+  popup.innerHTML = `
+    <p>Petunjuk Bermain:</p>
+    <ol>
+      <li>Silahkan Klik tombol play untuk masuk ke pilih level</li>
+      <li>Lalu mainkan level satu terlebih dahulu agar dapat membuka level selanjutnya</li>
+      <li>Jika pemain mengalami kekalahan pemain dapat mengeklik tombol ulang untuk kembali memainkan game</li>
+      <li>Jika Pemain memenangkan game pemain dapat mengeklik tombol lanjut untuk memainkan level selanjutnya</li>
+      <li>Jika semua level sudah dimainkan, otomatis permainan akan berhenti dilevel 7 dan pemain dapat memainkan level-level sebelumnya</li>
+    </ol>
+  `;
+
+  document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.remove();
+  }, 4000);
 }
